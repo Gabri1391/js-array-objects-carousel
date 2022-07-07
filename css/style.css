@@ -8,6 +8,7 @@
 
 #carousel-section .gallery{
     height: 100%;
+    position: relative;
 }
 
 #carousel-section .gallery img{
@@ -22,20 +23,29 @@
     display: block;
 }
 
+.info{
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    color: white;
+    display: none;
+}
+
+
 #carousel-section .bi{
     font-size: 50px;
 }
 
 #previous{
     position: absolute;
-    top: 50%;
+    top: 80%;
     transform: translateY(-50%);
     right: 102%;
 }
 
 #next{
     position: absolute;
-    top: 50%;
+    top: 80%;
     transform: translateY(-50%);
     left: 102%;
-} 
+}
