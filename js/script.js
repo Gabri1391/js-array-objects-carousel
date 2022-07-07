@@ -9,6 +9,7 @@
 
 //Recupero l'elemento galleria dal DOM
 const gallery = document.querySelector('#carousel-section .gallery');
+const thumbnails = document.getElementById('thumbnails');
 
 //Creo l'array di oggetti che rappresentano ciascuna immagine
 
@@ -17,33 +18,33 @@ const images = [
       url: 'http://www.viaggiareonline.it/wp-content/uploads/2014/11/sweden_148857365.jpg',
       title: 'Svezia',
       description:
-        'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam.',
+        'Il clima è continentale nordico e risente della presenza del mare solo nelle estreme regioni meridionali. Le estati sono brevi e temperate, gli inverni sono freddi e lunghi.',
     },
   
     {
       url: 'https://static1.evcdn.net/images/reduction/1513757_w-1920_h-1080_q-70_m-crop.jpg',
       title: 'Perù',
       description:
-        'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam.',
+        ' Il Perù è uno dei paesi più famosi e ambiti del Sud America, soprattutto grazie a Machu Picchu, il luogo che più lo rappresenta nell immaginario comune.',
     },
   
     {
       url: 'https://img.itinari.com/pages/images/original/0d3ed180-d22d-48e8-84df-19c4d888b41f-62-crop.jpg?ch=DPR&dpr=2.625&w=1600&s=7ebd4b5a9e045f41b4e0c7c75d298d6c',
       title: 'Chile',
       description:
-        'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam.',
+        'il Paese sudamericano è custode di paesaggi e ambienti straordinariamente diversificati, che vanno dal più arido deserto del mondo alle dolci colline ricamate di vigneti, dai ghiacci perenni della Patagonia alle isole ricoperte di foreste.',
     },
     {
       url: 'https://static1.evcdn.net/images/reduction/1583177_w-1920_h-1080_q-70_m-crop.jpg',
       title: 'Argentina',
       description:
-        'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam.',
+        'in Argentina senza dubbio la natura occupa un posto rilevante: dalla cordigliera delle Ande ai laghi glaciali, passando per le distese di Pampa e le famose cascate di Iguazu, il Paese del tango è capace di offrire ai viaggiatori paesaggi straordinari.',
     },
     {
       url: 'https://cdn.sanity.io/images/24oxpx4s/prod/ed09eff0362396772ad50ec3bfb728d332eb1c30-3200x2125.jpg?w=1600&h=1063&fit=crop',
       title: 'Colombia',
       description:
-        'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam.',
+        'La Colombia è una terra ricca di luoghi da sogno, spiagge da sogno e cittadine colorate tutte da visitare. La Colombia è una meta di viaggio straordinaria.',
     },
   ];
 
@@ -60,6 +61,7 @@ for(const image of images){
 }
 
 gallery.innerHTML = imageElement + imageText;
+thumbnails.innerHTML = imageElement;
 
 //Recupero dal DOM
 const imagesDisplay = document.querySelectorAll('#carousel-section img');
@@ -82,6 +84,7 @@ const next = document.getElementById('next');
 next.addEventListener('click', function(){
     imagesDisplay[currentActiveIndex].classList.remove('active');
     imagesDescription[currentActiveIndex].classList.remove('active');
+    thumbs[currentActiveIndex].classList.remove('active');
 
     currentActiveIndex++;
 
@@ -92,12 +95,14 @@ next.addEventListener('click', function(){
 
     imagesDisplay[currentActiveIndex].classList.add('active');
     imagesDescription[currentActiveIndex].classList.add('active');
+    thumbs[currentActiveIndex].classList.add('active');
 })
 
 
 previous.addEventListener('click', function(){
     imagesDisplay[currentActiveIndex].classList.remove('active');
     imagesDescription[currentActiveIndex].classList.remove('active');
+    thumbs[currentActiveIndex].classList.remove('active');
 
     currentActiveIndex--;
 
@@ -107,6 +112,12 @@ previous.addEventListener('click', function(){
 
     imagesDisplay[currentActiveIndex].classList.add('active');
     imagesDescription[currentActiveIndex].classList.add('active');
+    thumbs[currentActiveIndex].classList.add('active');
 })
 
+//BONUS 1 
 
+//Recupero le thumbs dal DOM
+const thumbs = document.querySelectorAll('#thumbnails img');
+
+thumbs[currentActiveIndex].classList.add('active');
