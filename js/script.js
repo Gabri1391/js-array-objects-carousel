@@ -69,9 +69,44 @@ const imagesDescription = document.querySelectorAll('#carousel-section .info');
 //Variabile per indicare l'indice attivo
 let currentActiveIndex = 0;
 
-//Do la classe active alla prima immagine
+//Do la classe active alla prima immagine e alla descrizione della immagine stessa
 imagesDisplay[currentActiveIndex].classList.add('active');
 imagesDescription[currentActiveIndex].classList.add('active');
 
+//------------------------------------------------------------------------------//
+
+const previous = document.getElementById('previous');
+const next = document.getElementById('next');
+
+//LOGICA BOTTONI
+next.addEventListener('click', function(){
+    imagesDisplay[currentActiveIndex].classList.remove('active');
+    imagesDescription[currentActiveIndex].classList.remove('active');
+
+    currentActiveIndex++;
+
+    if(currentActiveIndex === images.length){
+        currentActiveIndex = 0;
+    }
+    
+
+    imagesDisplay[currentActiveIndex].classList.add('active');
+    imagesDescription[currentActiveIndex].classList.add('active');
+})
+
+
+previous.addEventListener('click', function(){
+    imagesDisplay[currentActiveIndex].classList.remove('active');
+    imagesDescription[currentActiveIndex].classList.remove('active');
+
+    currentActiveIndex--;
+
+   if(currentActiveIndex < 0){
+    currentActiveIndex = images.length -1;
+   }
+
+    imagesDisplay[currentActiveIndex].classList.add('active');
+    imagesDescription[currentActiveIndex].classList.add('active');
+})
 
 
