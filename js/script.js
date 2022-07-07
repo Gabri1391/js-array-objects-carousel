@@ -6,6 +6,25 @@
 // ## Milestone 2:
 // Aggiungere il ciclo infinito del carosello. Ovvero se la miniatura attiva è la prima e l’utente clicca la freccia verso destra, la miniatura che deve attivarsi sarà l’ultima e viceversa per l’ultima miniatura se l’utente clicca la freccia verso sinistra.
 
+//FUNCTION
+const switchImage = () => {
+    imagesDisplay[currentActiveIndex].classList.remove('active');
+    imagesDescription[currentActiveIndex].classList.remove('active');
+    thumbs[currentActiveIndex].classList.remove('active');
+
+    currentActiveIndex++;
+
+    imagesDisplay[currentActiveIndex].classList.add('active');
+    imagesDescription[currentActiveIndex].classList.add('active');
+    thumbs[currentActiveIndex].classList.add('active');
+
+    if(currentActiveIndex === images.length){
+        currentActiveIndex === 0;
+    }
+    
+    console.log(currentActiveIndex)
+
+};
 
 //Recupero l'elemento galleria dal DOM
 const gallery = document.querySelector('#carousel-section .gallery');
@@ -121,3 +140,7 @@ previous.addEventListener('click', function(){
 const thumbs = document.querySelectorAll('#thumbnails img');
 
 thumbs[currentActiveIndex].classList.add('active');
+
+//BONUS 2
+setInterval(switchImage,3000);
+
