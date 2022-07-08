@@ -1,3 +1,8 @@
+body{
+    background-image: url('../img/travel.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
 #carousel-section{
     width: 600px;
@@ -25,17 +30,20 @@
 
 .info{
     position: absolute;
-    left: 30px;
-    top: 20px;
+    left: 10px;
+    top: 10px;
     font-size: 1.1rem;
-    color: whitesmoke;
     display: none;
+    color: white;
+    box-shadow: 0 0 3px black;
+    font-weight: bold;
 }
 
 
 #carousel-section .bi{
     font-size: 50px;
 }
+
 
 /* BUTTONS */
 
@@ -71,9 +79,17 @@
     height:100%;
     border-radius: 15px;
     filter: grayscale(1);
+    cursor: pointer;
 }
 
 #thumbnails img.active{
     filter: grayscale(0);
-    box-shadow: 0 0  8px royalblue;
+    box-shadow: 0 0  8px darkcyan;
+}
+
+#thumbnails img:hover{
+    filter: grayscale(0);
+    transform: scale(1.3);
+    box-shadow: 0 0  8px goldenrod;
+    
 }

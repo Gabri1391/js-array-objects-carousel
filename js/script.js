@@ -8,21 +8,20 @@
 
 //FUNCTION
 const switchImage = () => {
-    imagesDisplay[currentActiveIndex].classList.remove('active');
-    imagesDescription[currentActiveIndex].classList.remove('active');
-    thumbs[currentActiveIndex].classList.remove('active');
+  imagesDisplay[currentActiveIndex].classList.remove('active');
+  imagesDescription[currentActiveIndex].classList.remove('active');
+  thumbs[currentActiveIndex].classList.remove('active');
 
-    currentActiveIndex++;
+  currentActiveIndex++;
 
-    imagesDisplay[currentActiveIndex].classList.add('active');
-    imagesDescription[currentActiveIndex].classList.add('active');
-    thumbs[currentActiveIndex].classList.add('active');
+  if(currentActiveIndex === images.length){
+      currentActiveIndex = 0;
+  }
+  
 
-    if(currentActiveIndex === images.length){
-        currentActiveIndex === 0;
-    }
-    
-    console.log(currentActiveIndex)
+  imagesDisplay[currentActiveIndex].classList.add('active');
+  imagesDescription[currentActiveIndex].classList.add('active');
+  thumbs[currentActiveIndex].classList.add('active');
 
 };
 
@@ -144,3 +143,17 @@ thumbs[currentActiveIndex].classList.add('active');
 //BONUS 2
 setInterval(switchImage,3000);
 
+thumbs.forEach((thumb,i) => {
+  thumb.addEventListener('click',() => {
+    imagesDisplay[currentActiveIndex].classList.remove('active');
+    imagesDescription[currentActiveIndex].classList.remove('active');
+    thumbs[currentActiveIndex].classList.remove('active');
+
+    currentActiveIndex = i;
+
+    imagesDisplay[currentActiveIndex].classList.add('active');
+    imagesDescription[currentActiveIndex].classList.add('active');
+    thumbs[currentActiveIndex].classList.add('active');
+
+  });
+});
