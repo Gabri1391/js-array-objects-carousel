@@ -141,7 +141,7 @@ const thumbs = document.querySelectorAll('#thumbnails img');
 thumbs[currentActiveIndex].classList.add('active');
 
 //BONUS 2
-setInterval(switchImage,3000);
+setInterval(switchImage,2000);
 
 thumbs.forEach((thumb,i) => {
   thumb.addEventListener('click',() => {
